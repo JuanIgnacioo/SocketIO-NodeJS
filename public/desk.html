@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- PARA CARGAR EL AUDIO E INSERTARLO
+
+
+
+
+-->
+
+
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Programa de Colas</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="container">
+    <h1 id="desk">Escritorio</h1>
+    <h4>Atendiendo a <small id="currentTicket">....</small></h4>
+
+    <button class="btn btn-primary" id="botoncito" onclick="requestTicket()">
+        Atender siguiente ticket
+    </button>
+
+
+</body>
+
+<script src="socket.io/socket.io.js"></script>
+
+<script src="js/socketEscritorio.js"></script>
+
+<script>
+    windows.load=function(){
+    
+        // crear el elemento del audio
+    
+        var audioElement=document.createElement('audio');
+    
+        audioElement.setAttribute('../public/audio/new-ticket.mp3');
+    
+        document.getElementById("botoncito").addEventListener("onclick",function(){
+    
+            audioElement.play();
+        })
+    
+    
+    }
+    </script>
+
+</html>
